@@ -1,0 +1,1696 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amruth Reddy Pullagurla | AI & Data Product Strategy Leader</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --primary-light: #818cf8;
+            --accent: #06b6d4;
+            --bg-dark: #0f0f1a;
+            --bg-card: #1a1a2e;
+            --bg-card-hover: #252542;
+            --text-primary: #ffffff;
+            --text-secondary: #a1a1aa;
+            --text-muted: #71717a;
+            --border: rgba(255, 255, 255, 0.08);
+            --gradient-1: linear-gradient(135deg, #6366f1 0%, #06b6d4 100%);
+            --gradient-2: linear-gradient(135deg, #06b6d4 0%, #10b981 100%);
+            --shadow-glow: 0 0 60px rgba(99, 102, 241, 0.15);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-dark);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Animated Background */
+        .bg-gradient {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .bg-gradient::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at 20% 80%, rgba(99, 102, 241, 0.08) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 20%, rgba(6, 182, 212, 0.08) 0%, transparent 50%),
+                        radial-gradient(circle at 40% 40%, rgba(16, 185, 129, 0.05) 0%, transparent 40%);
+            animation: bgFloat 20s ease-in-out infinite;
+        }
+
+        @keyframes bgFloat {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            33% { transform: translate(2%, 2%) rotate(1deg); }
+            66% { transform: translate(-1%, 1%) rotate(-1deg); }
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 1rem 2rem;
+            background: rgba(15, 15, 26, 0.8);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+            transition: all 0.3s ease;
+        }
+
+        nav.scrolled {
+            padding: 0.75rem 2rem;
+            background: rgba(15, 15, 26, 0.95);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            font-size: 1.25rem;
+            font-weight: 700;
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gradient-1);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--text-primary);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text-primary);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section - Two Column Layout */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 6rem 2rem 3rem;
+            position: relative;
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 360px 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        /* Left Column - Profile */
+        .hero-left {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            animation: fadeInLeft 0.8s ease forwards;
+        }
+
+        @keyframes fadeInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .hero-profile-large {
+            width: 320px;
+            height: 380px;
+            border-radius: 24px;
+            padding: 4px;
+            background: var(--gradient-1);
+            margin-bottom: 1.5rem;
+            box-shadow: 0 20px 60px rgba(99, 102, 241, 0.3);
+        }
+
+        .hero-profile-large img {
+            width: 100%;
+            height: 100%;
+            border-radius: 20px;
+            object-fit: cover;
+            object-position: center 15%;
+        }
+
+        .hero-name-card {
+            text-align: center;
+            padding: 1.25rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            width: 100%;
+        }
+
+        .hero-name-card h2 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 0.25rem;
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-name-card p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .hero-social-links {
+            display: flex;
+            gap: 0.75rem;
+            margin-top: 1rem;
+            justify-content: center;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            background: rgba(99, 102, 241, 0.1);
+            border: 1px solid rgba(99, 102, 241, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-secondary);
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .social-link:hover {
+            background: var(--gradient-1);
+            border-color: transparent;
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        .social-link svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        /* Right Column - Content */
+        .hero-right {
+            text-align: left;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: rgba(99, 102, 241, 0.1);
+            border: 1px solid rgba(99, 102, 241, 0.3);
+            border-radius: 50px;
+            font-size: 0.85rem;
+            color: var(--primary-light);
+            margin-bottom: 1rem;
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        .hero-badge .dot {
+            width: 8px;
+            height: 8px;
+            background: #10b981;
+            border-radius: 50%;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.2); }
+        }
+
+        .hero-right h1 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 800;
+            line-height: 1.15;
+            margin-bottom: 1.25rem;
+            animation: fadeInUp 0.6s ease 0.1s forwards;
+            opacity: 0;
+        }
+
+        .hero-right h1 .gradient-text {
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: 1.05rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+            animation: fadeInUp 0.6s ease 0.2s forwards;
+            opacity: 0;
+        }
+
+        .hero-cta {
+            display: flex;
+            justify-content: flex-start;
+            gap: 1rem;
+            margin-top: 1.5rem;
+            animation: fadeInUp 0.6s ease 0.4s forwards;
+            opacity: 0;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.875rem 1.75rem;
+            border-radius: 12px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background: var(--gradient-1);
+            color: white;
+            box-shadow: 0 4px 20px rgba(99, 102, 241, 0.4);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 30px rgba(99, 102, 241, 0.5);
+        }
+
+        .btn-secondary {
+            background: var(--bg-card);
+            color: var(--text-primary);
+            border: 1px solid var(--border);
+        }
+
+        .btn-secondary:hover {
+            background: var(--bg-card-hover);
+            border-color: var(--primary);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Section Styles */
+        section {
+            padding: 6rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-tag {
+            display: inline-block;
+            padding: 0.4rem 1rem;
+            background: rgba(99, 102, 241, 0.1);
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--primary-light);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .section-desc {
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* About Section */
+        #about {
+            padding-top: 4rem;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-image {
+            position: relative;
+        }
+
+        .about-image-wrapper {
+            position: relative;
+            border-radius: 24px;
+            overflow: hidden;
+            aspect-ratio: 1;
+            background: var(--gradient-1);
+            padding: 3px;
+        }
+
+        .about-image-inner {
+            width: 100%;
+            height: 100%;
+            background: var(--bg-card);
+            border-radius: 22px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 8rem;
+            color: var(--primary);
+            overflow: hidden;
+        }
+
+        .about-image-inner img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center top;
+        }
+
+        /* Hero profile image */
+        .hero-profile {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin: 0 auto 2rem;
+            padding: 4px;
+            background: var(--gradient-1);
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        .hero-profile img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            object-position: center top;
+        }
+
+        /* Specialization Tags */
+        .hero-tags {
+            display: flex;
+            justify-content: flex-start;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin: 1.5rem 0;
+            animation: fadeInUp 0.6s ease 0.25s forwards;
+            opacity: 0;
+        }
+
+        .hero-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.5rem 1rem;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            transition: all 0.3s ease;
+        }
+
+        .hero-tag:hover {
+            background: rgba(99, 102, 241, 0.1);
+            border-color: rgba(99, 102, 241, 0.3);
+            color: var(--text-primary);
+            transform: translateY(-2px);
+        }
+
+        .hero-tag-icon {
+            font-size: 1rem;
+        }
+
+        /* Company Logos / Worked With Section */
+        .hero-companies {
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border);
+            animation: fadeInUp 0.6s ease 0.5s forwards;
+            opacity: 0;
+        }
+
+        .hero-companies-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+        }
+
+        .hero-companies-list {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .company-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.6rem 1.2rem;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .company-item:hover {
+            background: rgba(99, 102, 241, 0.08);
+            border-color: rgba(99, 102, 241, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .company-logo {
+            width: 28px;
+            height: 28px;
+            background: var(--gradient-1);
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.75rem;
+            color: white;
+        }
+
+        .company-name {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+        }
+
+        /* Key Achievements Highlight */
+        .hero-achievements {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1rem;
+            margin-top: 2rem;
+            animation: fadeInUp 0.6s ease 0.45s forwards;
+            opacity: 0;
+        }
+
+        .achievement-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.25rem;
+            text-align: left;
+            transition: all 0.3s ease;
+        }
+
+        .achievement-card:hover {
+            background: rgba(99, 102, 241, 0.05);
+            border-color: rgba(99, 102, 241, 0.2);
+            transform: translateY(-3px);
+        }
+
+        .achievement-icon {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .achievement-value {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .achievement-label {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-top: 0.25rem;
+        }
+
+        .about-content h3 {
+            font-size: 1.75rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .about-content p {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+        }
+
+        .about-highlights {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .highlight-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 1rem;
+            background: var(--bg-card);
+            border-radius: 12px;
+            border: 1px solid var(--border);
+        }
+
+        .highlight-icon {
+            width: 40px;
+            height: 40px;
+            background: rgba(99, 102, 241, 0.1);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-light);
+        }
+
+        .highlight-text {
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        /* Experience Section */
+        .timeline {
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(180deg, var(--primary) 0%, var(--accent) 100%);
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-bottom: 3rem;
+            padding-left: 2rem;
+        }
+
+        .timeline-item:last-child {
+            padding-bottom: 0;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -2rem;
+            top: 0;
+            width: 16px;
+            height: 16px;
+            background: var(--bg-dark);
+            border: 3px solid var(--primary);
+            border-radius: 50%;
+            transform: translateX(-7px);
+        }
+
+        .timeline-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 1.75rem;
+            transition: all 0.3s ease;
+        }
+
+        .timeline-card:hover {
+            background: var(--bg-card-hover);
+            border-color: rgba(99, 102, 241, 0.3);
+            transform: translateX(8px);
+        }
+
+        .timeline-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .timeline-company {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .timeline-role {
+            color: var(--primary-light);
+            font-weight: 500;
+            margin-top: 0.25rem;
+        }
+
+        .timeline-date {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            background: rgba(99, 102, 241, 0.1);
+            padding: 0.4rem 0.8rem;
+            border-radius: 20px;
+        }
+
+        .timeline-location {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+        }
+
+        .timeline-achievements {
+            list-style: none;
+        }
+
+        .timeline-achievements li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.75rem;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .timeline-achievements li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0.5rem;
+            width: 6px;
+            height: 6px;
+            background: var(--accent);
+            border-radius: 50%;
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .skill-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 1.75rem;
+            transition: all 0.3s ease;
+        }
+
+        .skill-card:hover {
+            background: var(--bg-card-hover);
+            border-color: rgba(99, 102, 241, 0.3);
+            transform: translateY(-4px);
+        }
+
+        .skill-card-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .skill-icon {
+            width: 48px;
+            height: 48px;
+            background: rgba(99, 102, 241, 0.1);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+
+        .skill-card h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .skill-tag {
+            padding: 0.4rem 0.8rem;
+            background: rgba(99, 102, 241, 0.08);
+            border: 1px solid rgba(99, 102, 241, 0.2);
+            border-radius: 8px;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            transition: all 0.2s ease;
+        }
+
+        .skill-tag:hover {
+            background: rgba(99, 102, 241, 0.15);
+            color: var(--text-primary);
+        }
+
+        /* Certifications */
+        .certs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.25rem;
+        }
+
+        .cert-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.25rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .cert-card:hover {
+            background: var(--bg-card-hover);
+            transform: translateX(8px);
+        }
+
+        .cert-icon {
+            width: 44px;
+            height: 44px;
+            background: var(--gradient-1);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .cert-icon svg {
+            width: 24px;
+            height: 24px;
+            fill: white;
+        }
+
+        .cert-info h4 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .cert-info p {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        /* Contact Section */
+        #contact {
+            text-align: center;
+        }
+
+        .contact-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            padding: 3rem;
+            max-width: 600px;
+            margin: 0 auto;
+            box-shadow: var(--shadow-glow);
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-link {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.25rem;
+            background: rgba(99, 102, 241, 0.1);
+            border: 1px solid rgba(99, 102, 241, 0.2);
+            border-radius: 10px;
+            color: var(--text-primary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .contact-link:hover {
+            background: rgba(99, 102, 241, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .contact-link svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 3rem 2rem;
+            border-top: 1px solid var(--border);
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .about-image {
+                max-width: 300px;
+                margin: 0 auto;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .hero-stats {
+                gap: 1.5rem;
+            }
+
+            .stat-value {
+                font-size: 2rem;
+            }
+
+            .about-highlights {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-cta {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                width: 100%;
+                max-width: 280px;
+                justify-content: center;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .timeline {
+                padding-left: 1rem;
+            }
+
+            .timeline-item {
+                padding-left: 1.5rem;
+            }
+        }
+
+        /* Scroll animations */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s ease;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive adjustments for hero */
+        @media (max-width: 968px) {
+            .hero-container {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+                text-align: center;
+            }
+
+            .hero-left {
+                order: 1;
+            }
+
+            .hero-right {
+                order: 2;
+                text-align: center;
+            }
+
+            .hero-profile-large {
+                width: 260px;
+                height: 320px;
+            }
+
+            .hero-tags {
+                justify-content: center;
+            }
+
+            .hero-cta {
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+
+            .hero-companies-list {
+                justify-content: center;
+            }
+
+            .hero-achievements {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 640px) {
+            .hero-container {
+                gap: 2rem;
+            }
+
+            .hero-profile-large {
+                width: 200px;
+                height: 260px;
+            }
+
+            .hero-name-card {
+                padding: 1rem;
+            }
+
+            .hero-tags {
+                gap: 0.5rem;
+            }
+
+            .hero-tag {
+                padding: 0.4rem 0.75rem;
+                font-size: 0.75rem;
+            }
+
+            .hero-cta {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                width: 100%;
+                max-width: 280px;
+                justify-content: center;
+            }
+
+            .hero-achievements {
+                grid-template-columns: 1fr 1fr;
+                gap: 0.75rem;
+            }
+
+            .achievement-card {
+                padding: 1rem;
+            }
+
+            .achievement-value {
+                font-size: 1.25rem;
+            }
+
+            .hero-companies-list {
+                flex-direction: column;
+                gap: 0.75rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-gradient"></div>
+
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">Amruth Reddy</div>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#certifications">Certifications</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <button class="mobile-menu-btn">☰</button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <!-- Left Column - Profile -->
+            <div class="hero-left">
+                <div class="hero-profile-large">
+                    <img src="profile.jpg" alt="Amruth Reddy Pullagurla">
+                </div>
+                <div class="hero-name-card">
+                    <h2>Amruth Reddy Pullagurla</h2>
+                    <p>Senior Technical Product Manager</p>
+                    <div class="hero-social-links">
+                        <a href="https://www.linkedin.com/in/amruthreddy" target="_blank" class="social-link" title="LinkedIn">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                            </svg>
+                        </a>
+                        <a href="mailto:Amruth1011@gmail.com" class="social-link" title="Email">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                                <polyline points="22,6 12,13 2,6"/>
+                            </svg>
+                        </a>
+                        <a href="tel:+12016749611" class="social-link" title="Phone">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column - Content -->
+            <div class="hero-right">
+                <div class="hero-badge">
+                    <span class="dot"></span>
+                    Available for opportunities
+                </div>
+                <h1>
+                    <span class="gradient-text">AI & Data Product</span><br>
+                    Strategy Leader
+                </h1>
+                <p class="hero-subtitle">
+                    Visionary leader with 18+ years driving enterprise healthcare and pharmaceutical data & AI products from discovery through scaled adoption. Expert at translating complex data capabilities into outcome-driven product strategies that unlock discovery, quality, compliance, and monetization across organizations.
+                </p>
+
+                <!-- Specialization Tags -->
+                <div class="hero-tags">
+                    <span class="hero-tag"><span class="hero-tag-icon">🤖</span> Agentic AI</span>
+                    <span class="hero-tag"><span class="hero-tag-icon">📊</span> Data Strategy</span>
+                    <span class="hero-tag"><span class="hero-tag-icon">🏥</span> Healthcare Tech</span>
+                    <span class="hero-tag"><span class="hero-tag-icon">☁️</span> Cloud Platforms</span>
+                    <span class="hero-tag"><span class="hero-tag-icon">🛡️</span> Data Governance</span>
+                    <span class="hero-tag"><span class="hero-tag-icon">🔄</span> MLOps</span>
+                </div>
+
+                <!-- Key Achievements -->
+                <div class="hero-achievements">
+                    <div class="achievement-card">
+                        <div class="achievement-icon">💰</div>
+                        <div class="achievement-value">$100M+</div>
+                        <div class="achievement-label">Annual Value Delivered</div>
+                    </div>
+                    <div class="achievement-card">
+                        <div class="achievement-icon">📈</div>
+                        <div class="achievement-value">18+ Years</div>
+                        <div class="achievement-label">Enterprise Experience</div>
+                    </div>
+                    <div class="achievement-card">
+                        <div class="achievement-icon">⚡</div>
+                        <div class="achievement-value">99.5%</div>
+                        <div class="achievement-label">Pipeline Reliability</div>
+                    </div>
+                    <div class="achievement-card">
+                        <div class="achievement-icon">🚀</div>
+                        <div class="achievement-value">40%</div>
+                        <div class="achievement-label">Faster Time-to-Insight</div>
+                    </div>
+                </div>
+
+                <div class="hero-cta">
+                    <a href="#contact" class="btn btn-primary">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                            <polyline points="22,6 12,13 2,6"/>
+                        </svg>
+                        Get in Touch
+                    </a>
+                    <a href="#experience" class="btn btn-secondary">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 5v14M5 12l7 7 7-7"/>
+                        </svg>
+                        View Experience
+                    </a>
+                </div>
+
+                <!-- Companies Worked With -->
+                <div class="hero-companies">
+                    <div class="hero-companies-label">Trusted by Industry Leaders</div>
+                    <div class="hero-companies-list">
+                        <div class="company-item">
+                            <div class="company-logo">M</div>
+                            <span class="company-name">McKesson</span>
+                        </div>
+                        <div class="company-item">
+                            <div class="company-logo">I</div>
+                            <span class="company-name">Inovalon</span>
+                        </div>
+                        <div class="company-item">
+                            <div class="company-logo">C</div>
+                            <span class="company-name">Cricket</span>
+                        </div>
+                        <div class="company-item">
+                            <div class="company-logo">CL</div>
+                            <span class="company-name">CenturyLink</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="about-grid reveal">
+            <div class="about-image">
+                <div class="about-image-wrapper">
+                    <div class="about-image-inner">
+                        <img src="profile.jpg" alt="Amruth Reddy Pullagurla">
+                    </div>
+                </div>
+            </div>
+            <div class="about-content">
+                <span class="section-tag">About Me</span>
+                <h3>Transforming Data into Strategic Value</h3>
+                <p>
+                    I'm a product strategy leader specializing in enterprise healthcare and pharmaceutical
+                    data platforms. My expertise lies in translating complex data capabilities into
+                    outcome-driven strategies that unlock discovery, quality, compliance, and monetization
+                    across organizations.
+                </p>
+                <p>
+                    Currently pursuing Agentic AI Product Management Certification with expertise in
+                    building autonomous AI agents using production-ready tools. I champion data governance,
+                    product roadmaps, and platform strategies that provide secure, trusted, and scalable
+                    analytics organization-wide.
+                </p>
+                <div class="about-highlights">
+                    <div class="highlight-item">
+                        <div class="highlight-icon">🏥</div>
+                        <span class="highlight-text">Healthcare & Pharma</span>
+                    </div>
+                    <div class="highlight-item">
+                        <div class="highlight-icon">🤖</div>
+                        <span class="highlight-text">Agentic AI</span>
+                    </div>
+                    <div class="highlight-item">
+                        <div class="highlight-icon">☁️</div>
+                        <span class="highlight-text">Cloud Architecture</span>
+                    </div>
+                    <div class="highlight-item">
+                        <div class="highlight-icon">📊</div>
+                        <span class="highlight-text">Data Governance</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience">
+        <div class="section-header reveal">
+            <span class="section-tag">Career Journey</span>
+            <h2 class="section-title">Professional Experience</h2>
+            <p class="section-desc">Building enterprise data platforms and AI solutions across leading healthcare organizations</p>
+        </div>
+
+        <div class="timeline reveal">
+            <div class="timeline-item">
+                <div class="timeline-card">
+                    <div class="timeline-header">
+                        <div>
+                            <div class="timeline-company">McKesson Corporation</div>
+                            <div class="timeline-role">Senior Technical Product Manager Data & AI</div>
+                        </div>
+                        <span class="timeline-date">May 2023 – Present</span>
+                    </div>
+                    <div class="timeline-location">📍 Irving, Texas</div>
+                    <ul class="timeline-achievements">
+                        <li>Defined product vision and 18-month roadmap for Azure Databricks Lakehouse serving 200+ users across $250B+ pharmaceutical distribution operations</li>
+                        <li>Cut finance/compliance time-to-insight from 2–3 weeks to 2–3 days by building unified lakehouse with near-real-time dashboards tracking $450M monthly spend</li>
+                        <li>Achieved 99.5% pipeline reliability and 92% user adoption rate within 6 months through medallion architecture implementation</li>
+                        <li>Delivered $8M+ annual value through AI-powered PRGX audit modernization processing 12M+ monthly transactions</li>
+                        <li>Achieved 40% reduction in false-positive escalations through confidence-based routing and explainable AI features</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-card">
+                    <div class="timeline-header">
+                        <div>
+                            <div class="timeline-company">Inovalon</div>
+                            <div class="timeline-role">Senior Director, Data Strategy & Product Management</div>
+                        </div>
+                        <span class="timeline-date">Mar 2023 – Apr 2025</span>
+                    </div>
+                    <div class="timeline-location">📍 Bowie, Maryland</div>
+                    <ul class="timeline-achievements">
+                        <li>Led vision and execution of enterprise healthcare data products integrating EHR, claims, and oncology data</li>
+                        <li>Directed rollout of unified enterprise dashboarding platform, reducing operational costs by $2M</li>
+                        <li>Drove 40% improvement in data discovery speed through unified data catalog implementation</li>
+                        <li>Eliminated data ingestion silos, resulting in annual cost savings of $5 million</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-card">
+                    <div class="timeline-header">
+                        <div>
+                            <div class="timeline-company">Inovalon</div>
+                            <div class="timeline-role">Director, Data Strategy & Product Management</div>
+                        </div>
+                        <span class="timeline-date">May 2017 – Feb 2023</span>
+                    </div>
+                    <div class="timeline-location">📍 Bowie, Maryland</div>
+                    <ul class="timeline-achievements">
+                        <li>Managed enterprise-wide data initiatives including cloud migration (on-prem to AWS)</li>
+                        <li>Implemented data quality rules engine across 3PB of healthcare data, enabling 99% pipeline reliability YoY</li>
+                        <li>Partnered with 40+ teams to align semantic models and data standards</li>
+                        <li>Reduced project cycle times by 20% per quarter through detailed scoping documents</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-card">
+                    <div class="timeline-header">
+                        <div>
+                            <div class="timeline-company">Inovalon</div>
+                            <div class="timeline-role">Senior Manager → Manager, Enterprise Data Management</div>
+                        </div>
+                        <span class="timeline-date">2010 – 2017</span>
+                    </div>
+                    <div class="timeline-location">📍 Bowie, Maryland</div>
+                    <ul class="timeline-achievements">
+                        <li>Managed team of 10 people to deliver $32M revenue</li>
+                        <li>Led development and execution of data acquisition and integration processes</li>
+                        <li>Implemented corporate SFTP gateway serving 100+ health plan clients under HIPAA guidelines</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-card">
+                    <div class="timeline-header">
+                        <div>
+                            <div class="timeline-company">Cricket Wireless & CenturyLink</div>
+                            <div class="timeline-role">Senior Software Engineer → Software Engineer</div>
+                        </div>
+                        <span class="timeline-date">2007 – 2010</span>
+                    </div>
+                    <div class="timeline-location">📍 Denver & Broomfield, CO</div>
+                    <ul class="timeline-achievements">
+                        <li>Reporting, Analytics, Data Mining, and Predictive Analytics</li>
+                        <li>ETL development, data warehousing, and automation frameworks</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <div class="section-header reveal">
+            <span class="section-tag">Expertise</span>
+            <h2 class="section-title">Skills & Technologies</h2>
+            <p class="section-desc">Comprehensive toolkit spanning AI/ML, cloud platforms, data engineering, and governance</p>
+        </div>
+
+        <div class="skills-grid reveal">
+            <div class="skill-card">
+                <div class="skill-card-header">
+                    <div class="skill-icon">🤖</div>
+                    <h3>AI & Machine Learning</h3>
+                </div>
+                <div class="skill-tags">
+                    <span class="skill-tag">TensorFlow</span>
+                    <span class="skill-tag">PyTorch</span>
+                    <span class="skill-tag">OpenAI API</span>
+                    <span class="skill-tag">LangChain</span>
+                    <span class="skill-tag">Crew.AI</span>
+                    <span class="skill-tag">Hugging Face</span>
+                    <span class="skill-tag">SageMaker</span>
+                    <span class="skill-tag">Vertex AI</span>
+                    <span class="skill-tag">MLflow</span>
+                    <span class="skill-tag">n8n</span>
+                    <span class="skill-tag">MCP</span>
+                </div>
+            </div>
+
+            <div class="skill-card">
+                <div class="skill-card-header">
+                    <div class="skill-icon">☁️</div>
+                    <h3>Data & Cloud Platforms</h3>
+                </div>
+                <div class="skill-tags">
+                    <span class="skill-tag">Databricks</span>
+                    <span class="skill-tag">Snowflake</span>
+                    <span class="skill-tag">AWS</span>
+                    <span class="skill-tag">Azure</span>
+                    <span class="skill-tag">Delta Lake</span>
+                    <span class="skill-tag">Unity Catalog</span>
+                    <span class="skill-tag">Medallion Architecture</span>
+                    <span class="skill-tag">Feature Stores</span>
+                </div>
+            </div>
+
+            <div class="skill-card">
+                <div class="skill-card-header">
+                    <div class="skill-icon">🔄</div>
+                    <h3>ETL & Data Engineering</h3>
+                </div>
+                <div class="skill-tags">
+                    <span class="skill-tag">Informatica</span>
+                    <span class="skill-tag">Talend</span>
+                    <span class="skill-tag">AWS Glue</span>
+                    <span class="skill-tag">ADF</span>
+                    <span class="skill-tag">Airflow</span>
+                    <span class="skill-tag">Terraform</span>
+                    <span class="skill-tag">Datadog</span>
+                </div>
+            </div>
+
+            <div class="skill-card">
+                <div class="skill-card-header">
+                    <div class="skill-icon">📊</div>
+                    <h3>Analytics & BI</h3>
+                </div>
+                <div class="skill-tags">
+                    <span class="skill-tag">Power BI</span>
+                    <span class="skill-tag">Tableau</span>
+                    <span class="skill-tag">Looker</span>
+                    <span class="skill-tag">QuickSight</span>
+                </div>
+            </div>
+
+            <div class="skill-card">
+                <div class="skill-card-header">
+                    <div class="skill-icon">🛡️</div>
+                    <h3>Data Governance</h3>
+                </div>
+                <div class="skill-tags">
+                    <span class="skill-tag">Atlan</span>
+                    <span class="skill-tag">Alation</span>
+                    <span class="skill-tag">Informatica EDC</span>
+                    <span class="skill-tag">MS Purview</span>
+                    <span class="skill-tag">HIPAA</span>
+                    <span class="skill-tag">HITRUST</span>
+                    <span class="skill-tag">SOC 2</span>
+                </div>
+            </div>
+
+            <div class="skill-card">
+                <div class="skill-card-header">
+                    <div class="skill-icon">💻</div>
+                    <h3>Programming & Databases</h3>
+                </div>
+                <div class="skill-tags">
+                    <span class="skill-tag">Python</span>
+                    <span class="skill-tag">SQL</span>
+                    <span class="skill-tag">Spark</span>
+                    <span class="skill-tag">Scala</span>
+                    <span class="skill-tag">MSSQL</span>
+                    <span class="skill-tag">MongoDB</span>
+                    <span class="skill-tag">PostgreSQL</span>
+                    <span class="skill-tag">Hive</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section id="certifications">
+        <div class="section-header reveal">
+            <span class="section-tag">Credentials</span>
+            <h2 class="section-title">Certifications & Awards</h2>
+        </div>
+
+        <div class="certs-grid reveal">
+            <div class="cert-card">
+                <div class="cert-icon">
+                    <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                </div>
+                <div class="cert-info">
+                    <h4>Agentic AI Product Management</h4>
+                    <p>Certification • 2026</p>
+                </div>
+            </div>
+
+            <div class="cert-card">
+                <div class="cert-icon">
+                    <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                </div>
+                <div class="cert-info">
+                    <h4>SAFe® Product Owner/Product Manager</h4>
+                    <p>Scaled Agile, Inc.</p>
+                </div>
+            </div>
+
+            <div class="cert-card">
+                <div class="cert-icon">
+                    <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                </div>
+                <div class="cert-info">
+                    <h4>Pragmatic Certified</h4>
+                    <p>Foundations, Focus, PMC Level I & II</p>
+                </div>
+            </div>
+
+            <div class="cert-card">
+                <div class="cert-icon">
+                    <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                </div>
+                <div class="cert-info">
+                    <h4>Leadership Excellence Program</h4>
+                    <p>Inovalon • 2018</p>
+                </div>
+            </div>
+
+            <div class="cert-card">
+                <div class="cert-icon">
+                    <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                </div>
+                <div class="cert-info">
+                    <h4>Emerging Leaders Program</h4>
+                    <p>Inovalon • 2016</p>
+                </div>
+            </div>
+
+            <div class="cert-card">
+                <div class="cert-icon">
+                    <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                </div>
+                <div class="cert-info">
+                    <h4>Operations Excellence Award</h4>
+                    <p>Inovalon • 2012</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education">
+        <div class="section-header reveal">
+            <span class="section-tag">Education</span>
+            <h2 class="section-title">Academic Background</h2>
+        </div>
+
+        <div class="certs-grid reveal">
+            <div class="cert-card">
+                <div class="cert-icon">
+                    <svg viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+                </div>
+                <div class="cert-info">
+                    <h4>Master of Science, Electrical & Computer Engineering</h4>
+                    <p>New York Institute of Technology • 2007</p>
+                </div>
+            </div>
+
+            <div class="cert-card">
+                <div class="cert-icon">
+                    <svg viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+                </div>
+                <div class="cert-info">
+                    <h4>Bachelor of Technology</h4>
+                    <p>Visvesvaraya Technological University, India • 2004</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="contact-card reveal">
+            <span class="section-tag">Let's Connect</span>
+            <h2 class="section-title">Get in Touch</h2>
+            <p class="section-desc">
+                Interested in discussing AI product strategy, data platforms, or healthcare technology?
+                I'd love to hear from you.
+            </p>
+            <div class="contact-links">
+                <a href="mailto:Amruth1011@gmail.com" class="contact-link">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                        <polyline points="22,6 12,13 2,6"/>
+                    </svg>
+                    Amruth1011@gmail.com
+                </a>
+                <a href="tel:+12016749611" class="contact-link">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                    </svg>
+                    (201) 674-9611
+                </a>
+                <a href="https://www.linkedin.com/in/amruthreddy" target="_blank" class="contact-link">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                    </svg>
+                    LinkedIn
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2025 Amruth Reddy Pullagurla. Built with passion for data & AI.</p>
+    </footer>
+
+    <script>
+        // Navbar scroll effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Reveal on scroll animation
+        const reveals = document.querySelectorAll('.reveal');
+
+        const revealOnScroll = () => {
+            reveals.forEach(element => {
+                const windowHeight = window.innerHeight;
+                const elementTop = element.getBoundingClientRect().top;
+                const revealPoint = 150;
+
+                if (elementTop < windowHeight - revealPoint) {
+                    element.classList.add('active');
+                }
+            });
+        };
+
+        window.addEventListener('scroll', revealOnScroll);
+        revealOnScroll(); // Initial check
+
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
